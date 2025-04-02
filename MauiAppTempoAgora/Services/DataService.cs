@@ -9,13 +9,14 @@ namespace MauiAppTempoAgora.Services
         {
             Tempo? t = null;
 
-            string chave = "657f9afae19c5d9dbc9e6d2bdefae687";
+            string chave = "657f9afae19c5d9dbc9e6d2bdefae687"; //declarar chave de api 
 
             string url = $"https://api.openweathermap.org/data/2.5/weather?" +
-                $"q={Cidade}&units=metric&appid={chave}";
-            using (HttpClient client = new HttpClient())
+                $"q={Cidade}&units=metric&appid={chave}"; // usar a url do site de api 
+
+            using (HttpClient client = new HttpClient()) // metodo de http 
             {
-                HttpResponseMessage resp = await client.GetAsync(url);
+                HttpResponseMessage resp = await client.GetAsync(url);// utilizando metodo assincruno 
 
                 if (resp.IsSuccessStatusCode)
                 {
