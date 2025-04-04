@@ -29,23 +29,24 @@ namespace MauiAppTempoAgora
                                          $"Nascer do Sol: {t.sunrise} \n" +
                                          $"Por do Sol: {t.sunset} \n" +
                                          $"Temp Máx: {t.temp_max} \n" +
-                                         $"Temp Min: {t.temp_min} \n";
+                                         $"Temp Min: {t.temp_min} \n" +
+                                         $" Velocidade do Vento: {t.speed} \n" +
+                                         $" Visibilidade: {t.visibility} \n" +
+                                         $" Descrição do tempo: {t.description} \n" ;
+
+
 
                         lbl_res.Text = dados_previsao;
 
                     }
-                    else
-                    {
-
-                        lbl_res.Text = "Sem dados de Previsão";
-                    }
+                    
 
                 }
-                else
+                else // Criando um pop up para mensagen de alerta para preencher a cidade com uma await lembrando que o metodo é assicrono 
                 {
-                    lbl_res.Text = "Preencha a cidade.";
-                }
 
+                    await DisplayAlert("Aviso", "Por favor, preencha o nome da cidade.", "OK");
+                }
             }
             catch (Exception ex)
             {
